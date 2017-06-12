@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h1>Products list</h1>
+    </div>
+    <div class="panel-body">
+        <form id="product_search" action="{{ path('_search') }}" method="post">
+            {{ form_widget(searchForm) }}
+            <input type="submit" value="Search" />
+        </form>
+        <div class="loading"></div>
+        <div id="product_list">
+            {% include 'product/list.html.twig' with {'products' : products}  %}
+        </div>
+        {% include 'product/new.html.twig' with {'form' : createForm }  %}
+        <div id="edit_form">
+            {% include 'product/edit.html.twig' with {'product_to_edit' : product_to_edit, 'form' : edit_form, 'delete_form' : delete_form }  %}
+        </div>
+    </div>
+{% endblock %}

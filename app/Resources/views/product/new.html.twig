@@ -1,0 +1,11 @@
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h1>Product creation</h1>
+        </div>
+        <div class="panel-body">
+            <form action="{{ path('_new') }}" id="product_new_form" method="post">
+                {{ form_widget(createForm) }}
+                <input type="submit" value="Create" class="btn btn-lg btn-success" />
+            </form>
+        </div>
+    </div>
